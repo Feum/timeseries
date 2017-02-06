@@ -23,17 +23,20 @@ int main(int argv, char** argc)
 {
 	
 	int8_t versionID;
+	string time_series;
 	 
 	
-	if (argv != 2) return -1;
+	if (argv != 3) return -1;
 	versionID = stoi(argc[1]);
+	time_series = argc[2];
 	
 	switch (versionID) {
-	case 1 : {Builder_V1 b (versionID); BUILD; break;}
-	case 2 : {Builder_V2 b (versionID); BUILD; break;}
-	case 3 : {Builder_V3 b (versionID); BUILD; break;}
-	case 4 : {Builder_V4 b (versionID); BUILD; break;}
-	case 5 : {Builder_V5 b (versionID); BUILD; break;}
+	case 1 : {Builder_V1 b (versionID, time_series); BUILD; break;}
+	case 2 : {Builder_V2 b (versionID, time_series); BUILD; break;}
+	case 3 : {Builder_V3 b (versionID, time_series); BUILD; break;}
+	case 4 : {Builder_V4 b (versionID, time_series); BUILD; break;}
+	case 5 : {Builder_V5 b (versionID, time_series); BUILD; break;}
+	default : {Builder_V5 b (versionID, time_series); BUILD; break;}
 	}
 	
 

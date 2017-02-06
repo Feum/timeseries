@@ -16,7 +16,8 @@ using namespace std;
 class Builder_V2 {
 	
 	int8_t versionID;
-
+	string time_series;
+	
 	map<int32_t, string> structure;
 	map<int32_t, vector<int32_t>> positions;
 		
@@ -94,17 +95,18 @@ class Builder_V2 {
 	
 public:
 	
-	Builder_V2(int8_t versionID)
+	Builder_V2(int8_t versionID, string file)
 
 	{
 			this->versionID = versionID;
+			this->time_series = file;
 					
 	}
 	
 	inline void readDataset()
 	{
 		ifstream dataFile;
-		dataFile.open("time_series.txt");
+		dataFile.open(time_series);
 		
 		
 		if (dataFile.is_open())

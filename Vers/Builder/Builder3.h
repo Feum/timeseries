@@ -14,6 +14,7 @@ using namespace sdsl;
 class Builder_V3 {
 	
 	int8_t versionID;
+	string time_series;
 	
 	map<int32_t, string> structure;
 	map<int32_t, vector<int32_t>> positions;
@@ -113,17 +114,18 @@ class Builder_V3 {
 	
 public:
 	
-	Builder_V3(int8_t versionID)
+	Builder_V3(int8_t versionID, string file)
 
 	{
 			this->versionID = versionID;
+			this->time_series = file;
 					
 	}
 	
 	inline void readDataset()
 	{
 		ifstream dataFile;
-		dataFile.open("time_series.txt");
+		dataFile.open(time_series);
 		
 		
 		if (dataFile.is_open())

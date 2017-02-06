@@ -16,6 +16,7 @@ using namespace std;
 class Builder_V1 {
 	
 	int8_t versionID;
+	string time_series;
 	map<int32_t, vector<pair<string, string>>> structure;
 		
 	int32_t refYear = 0;
@@ -88,17 +89,18 @@ class Builder_V1 {
 	
 public:
 	
-	Builder_V1(int8_t versionID)
+	Builder_V1(int8_t versionID, string file)
 
 	{
 			this->versionID = versionID;
+			this->time_series = file;
 					
 	}
 	
 	inline void readDataset()
 	{
 		ifstream dataFile;
-		dataFile.open("time_series.txt");
+		dataFile.open(time_series);
 		
 		
 		if (dataFile.is_open())

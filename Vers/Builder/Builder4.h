@@ -18,7 +18,8 @@ using namespace sdsl;
 class Builder_V4 {
 	
 	int8_t versionID;
-		
+	string time_series;	
+	
 	bit_vector_alloc bitKeys;
 	bool ibk = false;
 	vector<const char *> keys;
@@ -67,10 +68,11 @@ class Builder_V4 {
 	
 public:
 	
-	Builder_V4(int8_t versionID)
+	Builder_V4(int8_t versionID, string file)
 
 	{
 			this->versionID = versionID;
+			this->time_series = file;
 			pairs.push_back("");
 			
 			
@@ -81,7 +83,7 @@ public:
 	inline void readDataset()
 	{
 		ifstream dataFile;
-		dataFile.open("time_series.txt");
+		dataFile.open(time_series);
 		
 		
 		if (dataFile.is_open())

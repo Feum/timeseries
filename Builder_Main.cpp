@@ -3,6 +3,8 @@
 #include <Builder3.h>
 #include <Builder4.h>
 #include <Builder5.h>
+#include <Builder6.h>
+#include <Builder7.h>
 #include <cstdint>
 #include <chrono>
 #include <ctime>
@@ -16,7 +18,7 @@
 		b.serialize(); \
 	    end = std::chrono::system_clock::now(); \
 	    std::chrono::duration<double> elapsed_seconds = end-start; \
-	    cout << "elapsed time: " << elapsed_seconds.count() << "s\n"; \
+	    cout << "total elapsed time: " << elapsed_seconds.count() << "s\n"; \
 } while (false)
 
 int main(int argv, char** argc)
@@ -36,7 +38,9 @@ int main(int argv, char** argc)
 	case 3 : {Builder_V3 b (versionID, time_series); BUILD; break;}
 	case 4 : {Builder_V4 b (versionID, time_series); BUILD; break;}
 	case 5 : {Builder_V5 b (versionID, time_series); BUILD; break;}
-	default : {Builder_V5 b (versionID, time_series); BUILD; break;}
+	case 6 : {Builder_V6 b (versionID, time_series); BUILD; break;}
+	case 7 : {Builder_V7 b (versionID, time_series); BUILD; break;}
+	default : {Builder_V7 b (versionID, time_series); BUILD; break;}
 	}
 	
 

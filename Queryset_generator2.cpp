@@ -34,7 +34,7 @@ int main (int argv, char** argc) {
 	
 	ifstream dataFile;
 
-	if (argv != 4) return -1;
+	if (argv != 6) return -1;
 
 	dataFile.open(argc[3]);
 	
@@ -84,7 +84,7 @@ int main (int argv, char** argc) {
 	
 				int64_t dim = structure.size();
 				srand(stoi(argc[1]));
-				int64_t isx; int64_t idx; int8_t rnd; int64_t pag; int64_t record;
+				int64_t isx; int64_t idx; int8_t rnd = 0; int64_t pag; int64_t record;
 				vector <pair<string,vector<pair<string,string>>>> flat;
 				string query;
 				string file_name = "query_set_" + string(argc[2]) + ".txt";
@@ -96,14 +96,18 @@ int main (int argv, char** argc) {
 					flat.push_back(ent);
 				}
 				
+				int rangeDimension = stoi(argc[4]);
+				int top =  stoi(argc[5]);
+				
+				if (rangeDimension <= 0) return -1;
+				if (top <= 0) rnd = 1;
+				
 				for (int64_t i = 0; i < nqueries; i++)
 				{
 					query = "";
-					isx = rand() % (dim-1);
-					idx = rand() % (dim-1);
+					isx = rand() % (dim-rangeDimension-2);
+					idx = isx + rangeDimension;
 					pag = rand() % (dim-1);
-					rnd = rand() % 2;
-					int8_t top = rand() % 30;
 					
 					if (idx < isx) {int64_t temp = idx; idx = isx; isx = temp;}
 					

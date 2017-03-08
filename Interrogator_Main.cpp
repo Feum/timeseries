@@ -3,6 +3,9 @@
 #include <Interrogator3.h>
 #include <Interrogator4.h>
 #include <Interrogator5.h>
+#include <Interrogator6.h>
+#include <Interrogator7.h>
+#include <Interrogator8.h>
 #include <cstdint>
 #include <chrono>
 #include <ctime>
@@ -16,7 +19,7 @@
 	i.performQueries(); \
 	end = std::chrono::system_clock::now(); \
     std::chrono::duration<double> elapsed_seconds = end-start; \
-    cout << "elapsed time: " << elapsed_seconds.count() << "s\n"; \
+    cout << "total elapsed time: " << elapsed_seconds.count() << "s\n"; \
 } while (false)
 
 int main(int argv, char** argc)
@@ -35,6 +38,10 @@ int main(int argv, char** argc)
 	case 3 : {Interrogator_V3 i (versionID); INTERROGATE; break;}
 	case 4 : {Interrogator_V4 i (versionID); INTERROGATE; break;}
 	case 5 : {Interrogator_V5 i (versionID); INTERROGATE; break;}
+	case 6 : {Interrogator_V6 i (versionID); INTERROGATE; break;}
+	case 7 : {Interrogator_V7 i (versionID); INTERROGATE; break;}
+	case 8 : {Interrogator_V8 i (versionID); INTERROGATE; break;}
+	default : {Interrogator_V8 i (versionID); INTERROGATE; break;}
 	}
 	
 

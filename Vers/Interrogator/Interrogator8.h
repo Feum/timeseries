@@ -66,7 +66,7 @@ public:
 	    hash = cmph_load(mphf_fd);
 	    fclose(mphf_fd);
 	
-		string fileindex = string("index.") + to_string(versionID-1);
+		string fileindex = string("index.") + to_string(versionID);
 		ifstream ss(fileindex,ios::binary);
         vector<vector<char>> skey;
 		

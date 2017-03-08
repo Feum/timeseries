@@ -40,6 +40,7 @@ int main(int argv, char** argc)
 	case 5 : {Builder_V5 b (versionID, time_series); BUILD; break;}
 	case 6 : {Builder_V6 b (versionID, time_series); BUILD; break;}
 	case 7 : {Builder_V7 b (versionID, time_series); BUILD; break;}
+	case 8 : {Builder_V7 b (versionID, time_series); BUILD; break;}
 	default : {Builder_V7 b (versionID, time_series); BUILD; break;}
 	}
 	
